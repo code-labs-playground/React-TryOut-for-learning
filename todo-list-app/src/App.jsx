@@ -1,17 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 import './App.css'
-import TodoList from "./TodoList.jsx";
+import TodoList from './TodoList'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [completedTodos, setCompletedTodos] = useState([
+        { text: 'Take out the garbage', isCompleted: true },
+        { text: 'Make dinner', isCompleted: true }
+    ]);
+    const [incompleteTodos, setIncompleteTodos] = useState([
+        { text: 'Paint the house', isCompleted: false }
+    ]);
 
-  return (
-    <>
-        <TodoList completedTodos={[]} incompleteTodos={[]} />
-    </>
-  )
+    return (
+        <>
+            <TodoList completedTodos={completedTodos} incompleteTodos={incompleteTodos}/>
+        </>
+    );
 }
 
 export default App
